@@ -1,0 +1,489 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{hyperref}
+\usepackage{amsmath, amsfonts, amssymb}
+\usepackage{mathrsfs}
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage[left=2.50cm, right=2.50cm, top=2.50cm, bottom=2.50cm]{geometry}
+\usepackage{times}
+\usepackage{bm}
+\usepackage{listings}
+\usepackage{xcolor}
+\lstset{frame = shadowbox, basicstyle = \normalsize,
+	numbers = left, numberstyle = \normalsize, stepnumber = 1,
+	breaklines = true, tabsize = 4
+}
+
+\title{\LaTeX~Notes}
+\author{Xue Shengke \thanks{This note may assist you write academic paper or technical report.}}
+\date{\today}
+
+\begin{document}
+\maketitle
+\begin{abstract}
+	\centering
+	\normalsize \TeX{} document : article report book letter slides beamer $\cdots$
+\end{abstract}
+
+\section{special characters}
+\begin{tabular}[htp]{cc}
+	\vspace{1ex}
+	\verb|\# \$ \% \^ \_ \~ \{ \} | & 
+	\fbox{ \# ~ \$ ~ \% ~ \^{} ~ \_ ~ \~{} ~ \{ ~ \} ~ } \\
+	\vspace{1ex}
+	\verb|\backslash ` ' `` ''| & 
+	\fbox{ $\backslash$ ~ ` ~ ' ~ `` ~ '' } \\
+	\verb|\cdot \cdots \ldots \vdots \ddots| &
+	\fbox{ $\cdot \quad \cdots \quad \ldots \quad \vdots \quad \ddots$ } \\
+\end{tabular}
+	
+\section{text font and size}
+\begin{table}[htb]
+\centering
+\begin{tabular}{ccccc}
+	\hline
+	\verb|\text{}| & \verb|\underline{}| & \verb|\emph{}| & \verb|\textrm{}| & \verb|\textbf{}| \\
+	\text{text} & \underline{under} & \emph{emph} & \textrm{Roman} & \textbf{Bold} \\
+	\hline
+	\verb|\textsf{}| & \verb| \texttt{}| & \verb|\textit{}| & \verb|\textsc{}| & \verb|\textsl{}| \\
+	\textsf{Sans} & \texttt{Typewriter} & \textit{Italic} & \textsc{CAPS} & \textsl{Slanted} \\
+	\hline
+	\vspace{0.2ex}
+\end{tabular}
+%\end{table}
+%\begin{table}[htb]
+%\centering
+\begin{tabular}{ccccc}
+	\hline
+	\verb|\tiny{}| & \verb|\scriptsize{}| & \verb|\footnote{}| & \verb|\small{}| & \verb|\normalsize{}| \\
+	{\tiny tiny} & {\scriptsize scriptsize} & {\footnotesize footnotesize} & {\small small} & {\normalsize normalsize} \\
+	\hline
+	\verb|\large{}| & \verb|\Large{}| & \verb|\LARGE{}| & \verb|\huge{}| & \verb|\Huge{}| \\
+	{\large large} & {\Large Large} & {\LARGE LARGE} & {\huge huge} & {\Huge Huge} \\
+	\hline
+	\end{tabular}
+\end{table}
+
+\section{Greek symbol}
+\begin{tabular}[htp]{rrrrr}
+	\verb|\alpha| = $\bm{\alpha}$ & \verb|\beta| = $\bm{\beta}$ & \verb|\gamma| = $\bm{\gamma}$ & \verb|\delta| = $\bm{\delta}$ & \verb|\epsilon| = $\bm{\epsilon}$ \\
+	\verb|\varepsilon| = $\bm{\varepsilon}$ & \verb|\zeta| = $\bm{\zeta}$ & \verb|\eta| = $\bm{\eta}$ & \verb|\theta| = $\bm{\theta}$ & \verb|\vartheta| = $\bm{\vartheta}$ \\
+	\verb|\iota| = $\bm{\iota}$ & \verb|\kappa| = $\bm{\kappa}$ & \verb|\lambda| = $\bm{\lambda}$ & \verb|\mu| = $\bm{\mu}$ & \verb|\nu| = $\bm{\nu}$ \\
+	\verb|\xi| = $\bm{\xi}$ & \verb|\o| = $\bm{\o}$ & \verb|\pi| = $\bm{\pi}$ &	\verb|\varpi| = $\bm{\varpi}$ & \verb|\rho| = $\bm{\rho}$ \\
+	\verb|\varrho| = $\bm{\varrho}$ & \verb|\sigma| = $\bm{\sigma}$ & \verb|\varsigma| = $\bm{\varsigma}$ & \verb|\tau| = $\bm{\tau}$ & \verb|\upsilon| = $\bm{\upsilon}$ \\
+	\verb|\phi| = $\bm{\phi}$ & \verb|\varphi| = $\bm{\varphi}$ & \verb|\chi| = $\bm{\chi}$ & \verb|\psi| = $\bm{\psi}$ & \verb|\omega| = $\bm{\omega}$ \\
+	\verb|\Gamma| = $\bm{\Gamma}$ & \verb|\Delta| = $\bm{\Delta}$ &	\verb|\Theta| = $\bm{\Theta}$ & \verb|\Lambda| = $\bm{\Lambda}$ & \verb|\Xi| = $\bm{\Xi}$ \\
+	\verb|\Pi| = $\bm{\Pi}$ & \verb|\Sigma| = $\bm{\Sigma}$ & \verb|\Upsilon| = $\bm{\Upsilon}$ & \verb|\Phi| = $\bm{\Phi}$ & \verb|\Psi| = $\bm{\Psi}$ \\
+	\verb|\Omega| = $\bm{\Omega}$ & \verb|\$| = $\bm{\$}$ \\
+	\hline
+\end{tabular}
+%\\[1em]
+\section{math font}
+\verb|\usepackage{amsmath, amsfonts, amssymb}, \usepackage{mathrsfs}*|
+\begin{center}
+	\verb|\mathrm{}| = $\mathrm{A~B~C~D~E~F~G~H~I~J~K~L~M~N~O~P~Q~R~S~T~U~V~W~X~Y~Z}$ \\[0.3em]
+	\verb|\mathit{}| = $\mathit{A~B~C~D~E~F~G~H~I~J~K~L~M~N~O~P~Q~R~S~T~U~V~W~X~Y~Z}$ \\[0.3em]
+	\verb|\mathbf{}| = $\mathbf{A~B~C~D~E~F~G~H~I~J~K~L~M~N~O~P~Q~R~S~T~U~V~W~X~Y~Z}$ \\[0.3em]
+	\verb|\mathbb{}| = $\mathbb{A~B~C~D~E~F~G~H~I~J~K~L~M~N~O~P~Q~R~S~T~U~V~W~X~Y~Z}$ \\[0.3em]
+	\verb|\mathsf{}| = $\mathsf{A~B~C~D~E~F~G~H~I~J~K~L~M~N~O~P~Q~R~S~T~U~V~W~X~Y~Z}$ \\[0.3em]
+	\verb|\mathtt{}| = $\mathtt{A~B~C~D~E~F~G~H~I~J~K~L~M~N~O~P~Q~R~S~T~U~V~W~X~Y~Z}$ \\[0.3em]
+	\verb|\mathcal{}| = $\mathcal{A~B~C~D~E~F~G~H~I~J~K~L~M~N~O~P~Q~R~S~T~U~V~W~X~Y~Z}$ 
+	\\[0.3em]
+	\verb|*\mathscr{}| = $\mathscr{A~B~C~D~E~F~G~H~I~J~K~L~M~N~O~P~Q~R~S~T~U~V~W~X~Y~Z}$ 
+	\\[0.3em]	
+	\verb|\mathfrak{}| = $\mathfrak{A~B~C~D~E~F~G~H~I~J~K~L~M~N~O~P~Q~R~S~T~U~V~W~X~Y~Z}$
+\end{center}
+\section{color}
+\verb|\usepackage{color} \textcolor[rgb]{0.0,1.0,0.5}{text}, from 0 to 1| 
+\begin{table}[htb]
+\centering
+\begin{tabular}{cccc}
+	\verb|\color{red}{R}| & \verb|\color{green}{G}| & \verb|\color{blue}{B}| & \verb|\color{yellow}{Y}| \\
+	\color{red}{R} & \color{green}{G} & \color{blue}{B} & \color{yellow}{Y} \\
+	\hline
+\end{tabular}
+\end{table}
+
+\verb|\frac{1}{2}| = $\frac{1}{2}$, \verb|\sqrt[3]{2}| = $\sqrt[3]{2}$, \verb|X_{a}^{b}| = $X_{a}^{b}$, \verb|\sum_{a}^{b}| = $\sum_{a}^{b}$
+\section{parenthesis}
+\begin{verbatim*}
+\left[ \Bigg( \bigg| \Big< \big( . \big) \Big> \bigg| \Bigg) \right]= 
+\end{verbatim*}
+
+\begin{center}
+	$\left[ \quad \Bigg( \quad \bigg| \quad \Big< \quad \big( \quad \cdot \quad \big) \quad \Big> \quad \bigg| \quad \Bigg) \quad \right]$	
+\end{center}
+\section{space}
+\verb|A \ A ~ A \hspace{1ex} A \quad A \qquad A| = A\ A~A\hspace{1ex}A\quad A\qquad A
+\\[1ex]
+\begin{tabular}[htp]{rrrrr}
+	\centering
+	\verb|\hat{a}| = $\hat{a}$ & \verb|\check{a}| = $\check{a}$ & \verb|\tilde{a}| = $\tilde{a}$ & \verb|\grave{a}| = $\grave{a}$ & \verb|\dot{a}| = $\dot{a}$ \\
+	\verb|\ddot{a}| = $\ddot{a}$ & \verb|\bar{a}| = $\bar{a}$ & \verb|\vec{a}| = $\vec{a}$ & \verb|\acute{a}| = $\acute{a}$ & \verb|\breve{a}| = $\breve{a}$ \\
+	\hline
+%	\vspace{0.2ex}
+\end{tabular}
+\section{math function}
+\begin{table}[htb]
+	\centering
+	\begin{tabular}{ccccc}
+		\verb|\arccos| & \verb|\cos| & \verb|\csc| & \verb|\exp| & \verb|\arcsin| \\
+		$\arccos$ & $\cos$ & $\csc$ & $\exp$ & $\arcsin$ \\
+		\hline
+		\verb|\lg| & \verb|\ln| & \verb|\arctan| & \verb|\cot| & \verb|\det| \\
+		$\lg$ & $\ln$ & $\arctan$ & $\cot$ & $\det$ \\
+		\hline
+		\verb|\lim| & \verb|\log| & \verb|\arg| & \verb|\dim| & \verb|\inf| \\
+		$\lim$ & $\log$ & $\arg$ & $\dim$ & $\inf$ \\
+		\hline
+		\verb|\max| & \verb|\sup| & \verb|\tan| & \verb|\min| & \verb|\sin| \\
+		$\max$ & $\sup$ & $\tan$ & $\min$ & $\sin$ \\
+		\hline
+	\end{tabular}
+\end{table}
+\section{special symbol}
+\begin{table}[htp]
+\centering
+\begin{tabular}{cccccc}
+	\verb|\leq| & \verb|\geq| & \verb|\equiv| & \verb|\ll| & \verb|\gg| & \verb|\doteq| \\
+	$\leq$ & $\geq$ & $\equiv$ & $\ll$ & $\gg$ & $\doteq$ \\
+	\hline
+	\verb|\prec| & \verb|\succ| & \verb|\sim| & \verb|\preceq| & \verb|\succeq| & \verb|\simeq| \\
+	$\prec$ & $\succ$ & $\sim$ & $\preceq$ & $\succeq$ & $\simeq$ \\
+	\hline
+	\verb|\subset| & \verb|\supset| & \verb|\approx| & \verb|\subseteq| & \verb|\supseteq| & \verb|\cong| \\
+	$\subset$ & $\supset$ & $\approx$ & $\subseteq$ & $\supseteq$ & $\cong$ \\
+	\hline
+	\verb|\in| & \verb|\ni| & \verb|\propto| & \verb|\mid| & \verb|\parallel| & \verb|\notin| \\
+	$\in$ & $\ni$ & $\propto$ & $\mid$ & $\parallel$ & $\notin$ \\
+	\hline
+	\verb|\neq| & \verb|\pm| & \verb|\mp| & \verb|\cdot| & \verb|\div| & \verb|\times| \\
+	$\neq$ & $\pm$ & $\mp$ & $\cdot$ & $\div$ & $\times$  \\
+	\hline
+	\verb|\setminus| & \verb|\star| & \verb|\cup| & \verb|\cap| & \verb|\ast| & \verb|\circ|\\
+	$\setminus$ & $\star$ & $\cup$ & $\cap$ & $\ast$ & $\circ$ \\
+	\hline
+	\verb|\lor| & \verb|\land| & \verb|\bullet| & \verb|\oplus| & \verb|\diamond| & \verb|\odot| \\
+	$\lor$ & $\land$ & $\bullet$ & $\oplus$ & $\diamond$ & $\odot$ \\
+	\hline
+	\verb|\otimes| & \verb|\dagger| & \verb|\sum| & \verb|\bigcup| & \verb|\prod| & \verb|\bigcap| \\
+	$\otimes$ & $\dagger$ & $\sum$ & $\bigcup$ & $\prod$ & $\bigcap$ \\
+	\hline
+	\verb|\int| & \verb|\oint| & \verb|\bigodot| & \verb|\bigoplus| & \verb|\bigotimes| & \verb|\bigvee| \\
+	$\int$ & $\oint$ & $\bigodot$ & $\bigoplus$ & $\bigotimes$ & $\bigvee$ \\
+	\hline
+	\verb|\bigwedge| & \verb|\leqslant| & \verb|\geqslant| & \verb|\leqq| & \verb|\geqq| & \verb|\lll| \\
+	$\bigwedge$ & $\leqslant$ & $\geqslant$ & $\leqq$ & $\geqq$ & $\lll$ \\
+	\hline
+	\verb|\ggg| & \verb|\triangleq| & \verb|\thicksim| & \verb|\because| & \verb|\therefore| & \verb|\backepsilon| \\
+	$\ggg$ & $\triangleq$ & $\thicksim$ & $\because$ & $\therefore$ & $\backepsilon$ \\
+	\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[htp]
+\centering
+\begin{tabular}{cccc}
+	\verb|\nless| & \verb|\ngtr| & \verb|\subsetneqq| & \verb|\subsetneqq|\\	
+	$\nless$ & $\ngtr$ & $\subsetneqq$ & $\subsetneqq$\\
+	\hline
+	\verb|\nleq| & \verb|\ngeq| & \verb|\nleqslant| & \verb|\ngeqslant| \\	
+	$\nleq$ & $\ngeq$ & $\nleqslant$ & $\ngeqslant$ \\
+	\hline
+	\verb|\nleqq| & \verb|\ngeqq| & \verb|\nprec| & \verb|\nsucc| \\	
+	$\nleqq$ & $\ngeqq$ & $\nprec$ & $\nsucc$ \\
+	\hline
+	\verb|\npreceq| & \verb|\nsucceq| & \verb|\precneqq| & \verb|\succneqq| \\	
+	$\npreceq$ & $\nsucceq$ & $\precneqq$ & $\succneqq$ \\
+	\hline
+	\verb|\neq| & \verb|\nLeftarrow| & \verb|\nRightarrow| & \verb|\nLeftrightarrow| \\	
+	$\neq$ & $\nLeftarrow$ & $\nRightarrow$ & $\nLeftrightarrow$ \\
+	\hline
+	\verb|\square| & \verb|\blacksquare| & \verb|\vartriangle| & \verb|\blacktriangle| \\	
+	$\square$ & $\blacksquare$ & $\vartriangle$ & $\blacktriangle$ \\
+	\hline
+	\verb|\triangledown| & \verb|\blacktriangledown| & \verb|\lozenge| & \verb|\blacklozenge| \\	
+	$\triangledown$ & $\blacktriangledown$ & $\lozenge$ & $\blacklozenge$ \\
+	\hline
+	\verb|\nexists| & \verb|\backprime| & \verb|\bigstar| & \verb|\varnothing| \\	
+	$\nexists$ & $\backprime$ & $\bigstar$ & $\varnothing$ \\
+	\hline
+\end{tabular}	
+\end{table}
+
+\begin{table}[htp]
+\centering
+\begin{tabular}{ccc}
+	\verb|\leftarrow| & \verb|\rightarrow| & \verb|\leftrightarrow| \\	
+	$\leftarrow$ & $\rightarrow$ & $\leftrightarrow$ \\
+	\hline
+	\verb|\Leftarrow| & \verb|\Rightarrow| & \verb|\Leftrightarrow| \\
+	$\Leftarrow$ & $\Rightarrow$ & $\Leftrightarrow$ \\
+	\hline
+	\verb|\rightleftharpoons| & \verb|\uparrow| & \verb|\downarrow| \\
+	$\rightleftharpoons$ & $\uparrow$ & $\downarrow$ \\
+	\hline
+	\verb|\updownarrow| & \verb|\Uparrow| & \verb|\Downarrow| \\
+	$\updownarrow$ & $\Uparrow$ & $\Downarrow$ \\
+	\hline
+	\verb|\Updownarrow| & \verb|\leftrightharpoons| & \verb|\rightleftharpoons| \\
+	$\Updownarrow$ & $\leftrightharpoons$ & $\rightleftharpoons$ \\
+	\hline
+	\verb|\dashleftarrow| & \verb|\dashrightarrow| & \verb|\leftleftarrows| \\
+	$\dashleftarrow$ & $\dashrightarrow$ & $\leftleftarrows$ \\
+	\hline
+	\verb|\rightrightarrows| & \verb|\leftrightarrows| & \verb|\rightleftarrows| \\
+	$\rightrightarrows$ & $\leftrightarrows$ & $\rightleftarrows$ \\
+	\hline
+\end{tabular}	
+\end{table}
+
+\begin{table}[htp]
+\centering
+\begin{tabular}{cccccc}
+	\verb|\dots| & \verb|\cdots| & \verb|\vdots| & \verb|\ddots| & \verb|\forall| & \verb|\exists| \\
+	$\dots$ & $\cdots$ & $\vdots$ & $\ddots$ & $\forall$ & $\exists$ \\		
+	\hline
+	\verb|\mho| & \verb|\partial| & \verb|'| & \verb|\prime| & \verb|\emptyset| & \verb|\infty| \\
+	$\mho$ & $\partial$ & $'$ & $\prime$ & $\emptyset$ & $\infty$ \\
+	\hline
+	\verb|\nabla| & \verb|\triangle| & \verb|\diamondsuit| & \verb|\heartsuit| & \verb|\clubsuit| & \verb|\spadesuit| \\
+	$\nabla$ & $\triangle$ & $\diamondsuit$ & $\heartsuit$ & $\clubsuit$ & $\spadesuit$ \\
+	\hline
+	\vspace{2em}
+\end{tabular}	
+\end{table}
+
+\section{equation}
+\begin{minipage}[c]{0.5\textwidth}
+\begin{lstlisting}[language = TeX]
+	\begin{equation}
+		y=\left\{
+		\begin{array}{ll}
+			a & \textrm{first} \\
+			b & \textrm{second}\\
+			c & \textrm{third}
+		\end{array} 
+		\right.
+	\end{equation}
+\end{lstlisting}
+\end{minipage}
+\begin{minipage}[c]{0.4\textwidth}
+	\begin{equation}
+	y=\left\{
+	\begin{array}{ll}
+	a & \textrm{first} \\
+	b & \textrm{second}\\
+	c & \textrm{third}
+	\end{array} 
+	\right.
+	\end{equation}		
+\end{minipage}
+\\[1em]
+\section{align}
+\begin{minipage}[c]{0.5\textwidth}
+\begin{lstlisting}[language = TeX]
+	\begin{align}
+	a^2 &= b^2 + c^2 \\
+	x   &= \frac{-b \pm \sqrt{b^2 - 4ac}}{2a} 
+	\end{align}		
+\end{lstlisting}
+\end{minipage}
+\begin{minipage}[c]{0.5\textwidth}
+	\begin{align}
+	a^2 &= b^2 + c^2 \\
+	x &= \frac{-b \pm \sqrt{b^2 - 4ac}}{2a} 
+	\end{align}		
+\end{minipage}
+\\[1em]
+\section{figure}
+\begin{lstlisting}[language = TeX]
+\usepackage{graphicx}
+
+	\begin{figure}
+	\centering
+		\includegraphics[\textwidth]{imagefile}
+	\caption{text} \label{fig:key}
+	\end{figure}
+\end{lstlisting}
+\section{table}
+\begin{lstlisting}[language = TeX]
+	\begin{table}[htp]
+	\centering
+		\begin{tabular}{|l|c|r|}
+			\hline
+			1 & 2 & 3 \\
+			\hline
+			left & middle & right \\
+			\hline
+		\end{tabular}
+	\caption{text} \label{tab:key}
+	\end{table}
+\end{lstlisting}
+
+\begin{table}[htp]
+	\centering
+	\begin{tabular}{|l|c|r|}
+		\hline
+		1 & 2 & 3 \\
+		\hline
+		left & middle & right \\
+		\hline
+	\end{tabular}
+	\caption{text} \label{tab:key}
+\end{table}		
+\section{section and paragraph}
+\begin{minipage}[c]{0.52\textwidth}
+\begin{lstlisting}[language = TeX]
+	\section{title}
+	\subsection{subtitle}
+	\subsubsection{subsubtitle}
+	\paragraph{paragraphtitle} 
+		paragraph text	
+	\subparagraph{subparagraphtitle} 
+		subparagraph text	
+\end{lstlisting}
+\end{minipage}
+\hfill
+\begin{minipage}[c]{0.4\textwidth}
+	\section*{title}
+	\subsection*{subtitle}
+	\subsubsection*{subsubtitle}
+	\paragraph{paragraphtitle} paragraph text	
+	\subparagraph{subparagraphtitle} subparagraph text
+\end{minipage}
+\\[1em]
+\section{bibliography}
+\begin{lstlisting}[language = TeX]
+	\cite{id in bibtex file}
+	
+	\bibliographystyle{plain}
+	%style: plain ieeetr unsrt alpha abbrv apalike acm 
+	\bibliography{filename of bibtex}
+\end{lstlisting}
+\section{LaTeX}
+\begin{lstlisting}[language = TeX]
+	% A simple LaTeX template
+	\documentclass[10pt,a4paper]{article} % report,book,letter, etc. 
+	\usepackage[utf8]{inputenc}			  % UTF-8 encoding
+	\usepackage{hyperref}				  % make bookmarks
+	\usepackage{amsmath, amsfonts, amssymb} % math package
+	\usepackage{graphicx}		% import image
+	\usepackage{color}			% colorful text
+	\usepackage{times}			% Times New Roman
+		% mathpazo, fourier, charter, helvet, likewise	
+	\title{Your Title}
+	\author{Your Name 
+		\thanks{This is the place you want to say thanks.}	
+		}
+	\date{date of writing}
+	
+	\begin{document}
+	\maketitle
+	\section{First section}
+		Your text goes here. 
+	\subsection{Subsection}
+		Your text goes here. 
+	\section{Second section}
+		Your text goes here.
+	\end{document}
+\end{lstlisting}
+\section{beamer}
+\begin{lstlisting}[language = TeX]
+	% A simple Beamer template
+	\documentclass[10pt,mathserif]{beamer}
+	\mode<presentation>{
+		\usetheme{CambridgeUS}
+		% Szeged Berkeley beaver Amsterdam Copenhagen Berlin
+		\usecolortheme{dolphin}
+		% beaver crane dove lily orchid rose seagull seahorse sidebartab spruce whale wolverine
+		\setbeamercovered{dynamic}	% transparent frame
+		\setbeamertemplate{navigation symbols}{} % hide navigation bars
+		\setbeamertemplate{caption}[numbered]
+	}
+	\usepackage{amsmath, amsfonts, amssymb} % math package
+	\usepackage[english]{babel}	% main language English
+	\usepackage{color, graphicx} % colorful text and image
+	\usepackage{url} % hyperlink
+	\usepackage{times}	% Times New Roman
+	\usepackage{hyperref} % bookmarks
+	
+	\title[abbreviation]{Title}
+	\author{ Author name \thanks{ thanks or self-introduction}}
+	\institute[abbreviation]{affiliation or department}
+	\date{Apr. 7, 2016}
+		
+	\begin{document}
+	\AtBeginSection[]{
+		\begin{frame}<beamer>{Outline}
+		\tableofcontents[currentsection,currentsubsection]
+		\end{frame}
+	}
+	\begin{frame}
+		\titlepage
+	\end{frame}
+	
+	\section{Introduction}
+	\begin{frame}{Frametitle}
+		\pause
+		Any text may represent here.
+	\end{frame}
+	
+	\section{Bibliography}
+	\begin{frame}[allowframebreaks]{Bibliography}
+		\label{Reference}
+		\bibliographystyle{ieeetr}
+		\bibliography{bibtex file name}
+	\end{frame}
+	
+	\section*{Thanks}
+	\begin{frame}{End}
+		\Huge Thanks for your listening.
+	\end{frame}
+	\end{document}
+\end{lstlisting}
+\section{ctexart}
+\begin{lstlisting}[language = TeX]
+	% A simple Ctexart template
+	\documentclass[UTF8,a4paper,10pt]{ctexart}
+	\usepackage{amsmath, amsfonts, amssymb} % math package
+	\usepackage{graphicx}		% import image
+	\usepackage{color}			% colorful text
+	\usepackage{times}			% Times New Roman
+	% mathpazo, fourier, charter, helvet, likewise
+	\usepackage{hyperref}
+	
+	\title{Chinese Title}
+	\author{Author name \thanks{thanks, self-introduction or contact}}
+	\date{\today}
+	
+	\begin{document}
+	\maketitle
+	\section{Introduction}
+	This file may generate a pdf document with Chinese characters. However, the bookmarks will be messy text if it contains Chinese text inside. Use `gbk2uni' tool to solve this problem.
+	\section{Reference}
+		list your references here.
+	\newpage
+	From the second page, title and page number are shown at heading, left side and right side, respectively.	
+	\end{document}
+\end{lstlisting}
+\section{bibtex}
+\begin{lstlisting}[language = TeX]
+Compile tex file accompanied by bibtex file
+LaTeX  *.tex
+LaTeX  *.tex
+BibTeX *.tex
+LaTeX  *.tex
+then the sequence number of reference are correct.	
+\end{lstlisting}
+\section{gbk2uni}
+\begin{lstlisting}[language = TeX]
+Solve messy text(e.g. Chinese) in bookmarks (in command prompt)
+pdfLaTeX *.tex
+gbk2uni  *.out
+pdfLaTeX *.tex
+then the bookmarks show in Chinese correctly.
+\end{lstlisting}
+
+\end{document}
